@@ -3,20 +3,45 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Str;
+use App\Mail\AdminResetPassword;
+use Illuminate\Support\Facades\Mail;
+use App\Admin;
+use Hash;
 
 class ForgotPasswordController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling password reset emails and
-    | includes a trait which assists in sending these notifications from
-    | your application to your users. Feel free to explore this trait.
-    |
-    */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
 
-    use SendsPasswordResetEmails;
+    public function index()
+    {
+        return view('auth.forgotpassword');
+    }
+
+    public function send(Request $request)
+    {
+        $admin = Admin::where('email',$request->email) -> first();
+        if (!isset($admin)) {
+            return back()->with('error','You have entered invalid Email');
+        } else {
+            $password= Str::random(8);
+
+            $data=array(
+                'name'=> $admin->name,
+                'password'=> $password,
+            );
+    
+            Mail::to($admin->email)->send(new AdminResetPassword($data));
+            $admin->password = Hash::make($password);
+            $admin->save();
+            return back()->with('success','A fresh Password has been sent to your email address.');
+        }
+        
+
+    }
 }

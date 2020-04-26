@@ -28,11 +28,16 @@
                 <div class="card text-white bg-dark" style="margin-top: 100px;">
                     <div class="card-body">
                         <img src="{{ asset('img/logo_light.png') }}" height="65">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('sendpassword') }}">
                             {{ csrf_field() }}
                             <br>
-                            @if ($message = Session::get('error'))
+                            @if ($message = Session::get('success'))
                                 <div class="alert alert-light" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @endif
+                            @if ($message = Session::get('error'))
+                                <div class="alert alert-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </div>
                             @endif
@@ -40,18 +45,7 @@
                                 <label>Email address</label>
                                 <input name="email" type="email" class="form-control" placeholder="Enter email" value="{{ old('email') }}">
                             </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input name="password" type="password" class="form-control" placeholder="Password">
-                            </div>
-                            <div class="form-check">
-                                <input name="remember" type="checkbox" class="form-check-input" {{ old('remember') ? 'checked' : '' }}>
-                                <label class="form-check-label">Check me out</label>
-                            </div>
-                            <br>
                             <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                            <br>
-                        <a class="btn btn-link " href="{{route('forgotpassword')}}">{{ __('Forgot Your Password?') }}</a>
                         </form>
                     </div>
                 </div>

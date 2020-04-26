@@ -27,3 +27,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('verify', 'Auth\VerificationController@index')->name('verify');
 Route::post('verify', 'Auth\VerificationController@verify')->name('verify');
 Route::get('send', 'Auth\VerificationController@send')->name('send');
+
+Route::get('forgotpassword', 'Auth\ForgotPasswordController@index')->name('forgotpassword');
+Route::post('sendpassword', 'Auth\ForgotPasswordController@send')->name('sendpassword');
