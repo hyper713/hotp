@@ -20,7 +20,7 @@
                             </div>
                         @endif
                         Before proceeding, please check your email for a verification code.
-                        If you did not receive the email, <a href="{{route('send')}}">click here to request another</a>.
+                        If you did not receive the email, <a href="{{route('sendverify')}}">click here to request another</a>.
                         <div class="form-group">
                             <br>
                             <label>Enter Code</label>

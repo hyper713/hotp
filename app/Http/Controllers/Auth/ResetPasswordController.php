@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Admin;
 use Hash;
 
-class ForgotPasswordController extends Controller
+class ResetPasswordController extends Controller
 {
     public function __construct()
     {
@@ -20,7 +20,7 @@ class ForgotPasswordController extends Controller
 
     public function index()
     {
-        return view('auth.forgotpassword');
+        return view('auth.reset');
     }
 
     public function send(Request $request)

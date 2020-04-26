@@ -26,7 +26,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('verify', 'Auth\VerificationController@index')->name('verify');
 Route::post('verify', 'Auth\VerificationController@verify')->name('verify');
-Route::get('send', 'Auth\VerificationController@send')->name('send');
+Route::get('sendverify', 'Auth\VerificationController@send')->name('sendverify');
 
-Route::get('forgotpassword', 'Auth\ForgotPasswordController@index')->name('forgotpassword');
-Route::post('sendpassword', 'Auth\ForgotPasswordController@send')->name('sendpassword');
+Route::get('reset', 'Auth\ResetPasswordController@index')->name('reset');
+Route::post('sendpassword', 'Auth\ResetPasswordController@send')->name('sendpassword');
