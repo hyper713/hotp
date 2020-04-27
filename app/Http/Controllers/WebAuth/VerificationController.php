@@ -46,7 +46,7 @@ class VerificationController extends Controller
 
         $elm=new AdminCode;
         $elm->admin_id=Auth::guard('admin-web')->user()->id;
-        $elm->code=Hash::make($code);
+        $elm->code=$code;
         $elm->save();
         return back()->with('success','A fresh email has been sent to your email address.');
 
@@ -63,7 +63,7 @@ class VerificationController extends Controller
                     ->orderBy('created_at', 'desc')
                     ->first();
 
-        if(Hash::check($request->code , $sent_code->code))
+        if(strcmp($request->code , $sent_code->code)==0)
         {
             $admin = Admin::find(Auth::guard('admin-web')->user()->id);
             $admin->email_verified_at=date('Y-m-d H:i:s');
