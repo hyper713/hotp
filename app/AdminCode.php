@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AdminVerify extends Model
+class AdminCode extends Model
 {
-    protected $table = 'admin_verify';
+    protected $table = 'admin_code';
     protected $primaryKey = 'id';
     public $timestamps = false;
 }

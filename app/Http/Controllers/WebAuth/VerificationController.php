@@ -4,11 +4,11 @@ namespace App\Http\Controllers\WebAuth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
-use App\Mail\AdminVerifyMail;
+use App\Mail\AdminVerify;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Auth;
-use App\AdminVerify;
+use App\AdminCode;
 use Hash;
 use DB;
 use App\Admin;
@@ -42,9 +42,9 @@ class VerificationController extends Controller
             'code'=> $code,
         );
 
-        Mail::to($address)->send(new AdminVerifyMail($data));
+        Mail::to($address)->send(new AdminVerify($data));
 
-        $elm=new AdminVerify;
+        $elm=new AdminCode;
         $elm->admin_id=Auth::guard('admin-web')->user()->id;
         $elm->code=Hash::make($code);
         $elm->save();
@@ -58,7 +58,7 @@ class VerificationController extends Controller
             return back();
         }
         
-        $sent_code = DB::table('admin_verify')
+        $sent_code = DB::table('admin_code')
                     ->where('admin_id',Auth::guard('admin-web')->user()->id)
                     ->orderBy('created_at', 'desc')
                     ->get();
