@@ -1,5 +1,4 @@
 <?php
-use App\Mail\AdminVerifyMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,18 +14,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/mail', function () {
-    return new AdminVerifyMail();
-});
-
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('login', 'WebAuth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'WebAuth\LoginController@login');
+Route::get('logout', 'WebAuth\LoginController@logout')->name('logout');
 
-Route::get('verify', 'Auth\VerificationController@index')->name('verify');
-Route::post('verify', 'Auth\VerificationController@verify')->name('verify');
-Route::get('sendverify', 'Auth\VerificationController@send')->name('sendverify');
+Route::get('verify', 'WebAuth\VerificationController@index')->name('verify');
+Route::post('verify', 'WebAuth\VerificationController@verify')->name('verify');
+Route::get('sendverify', 'WebAuth\VerificationController@send')->name('sendverify');
 
-Route::get('reset', 'Auth\ResetPasswordController@index')->name('reset');
-Route::post('sendpassword', 'Auth\ResetPasswordController@send')->name('sendpassword');
+Route::get('reset', 'WebAuth\ResetPasswordController@index')->name('reset');
+Route::post('sendpassword', 'WebAuth\ResetPasswordController@send')->name('sendpassword');

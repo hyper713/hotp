@@ -30,7 +30,7 @@ class LoginController extends Controller
         }
         else
         {
-            return back()->with('error','Opps!invalid credentials')->withInput();
+            return back()->with('error','Opps! invalid credentials')->withInput();
         }
         
     }
