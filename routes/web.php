@@ -14,7 +14,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('dashboard', 'web\DashboardController@index')->name('dashboard');
 Route::get('login', 'WebAuth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'WebAuth\LoginController@login');
 Route::get('logout', 'WebAuth\LoginController@logout')->name('logout');

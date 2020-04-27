@@ -61,9 +61,9 @@ class VerificationController extends Controller
         $sent_code = DB::table('admin_code')
                     ->where('admin_id',Auth::guard('admin-web')->user()->id)
                     ->orderBy('created_at', 'desc')
-                    ->get();
+                    ->first();
 
-        if(Hash::check($request->code , $sent_code[0]->code))
+        if(Hash::check($request->code , $sent_code->code))
         {
             $admin = Admin::find(Auth::guard('admin-web')->user()->id);
             $admin->email_verified_at=date('Y-m-d H:i:s');
