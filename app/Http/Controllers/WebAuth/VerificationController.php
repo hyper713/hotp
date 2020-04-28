@@ -47,6 +47,7 @@ class VerificationController extends Controller
         $elm=new AdminCode;
         $elm->admin_id=Auth::guard('admin-web')->user()->id;
         $elm->code=$code;
+        $elm->created_at=date('Y-m-d H:i:s');
         $elm->save();
         return back()->with('success','A fresh email has been sent to your email address.');
 

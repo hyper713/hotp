@@ -20,5 +20,11 @@ Route::middleware('auth:user-api')->get('/user', function (Request $request) {
 Route::post('register', 'ApiAuth\RegisterController@store');
 Route::post('login', 'ApiAuth\LoginController@login');
 
+Route::post('verify', 'ApiAuth\VerificationController@verify');
+Route::get('sendverify', 'ApiAuth\VerificationController@send');
+
+Route::post('sendpassword', 'ApiAuth\ResetPasswordController@send');
+
+
 
 Route::get('dashboard', 'api\DashboardController@index');
