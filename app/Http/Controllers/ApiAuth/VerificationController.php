@@ -56,7 +56,7 @@ class VerificationController extends Controller
         
         if(!isset($sent_code))
         {
-            return response()->json(['Error'=>'Code not found, Request another verification email']);
+            return response()->json(['Error'=>'Not found, Request another verification email']);
         }
         
         if(strcmp($request->code , $sent_code->code)==0)

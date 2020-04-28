@@ -4,20 +4,35 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
+use App\Product;
+use App\Category;
+use App\Provider;
+use App\Group;
+use App\Feedback;
+use App\Vote;
+use App\Admin;
+use App\User;
 
 class DashboardController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth:admin-web');
+        $this->middleware('AdminEmailVerified');
     }
 
     public function index()
     {
-        if(!Auth::guard('admin-web')->user()->hasVerifiedEmail()){
-            return redirect('verify');
-        }
-        return view('dashboard');
+        $var = array('products' => Product::count(),
+        'categories' => Category::count(),
+        'providers' => Provider::count(),
+        'groups' => Group::count(),
+        'feedbacks' => Feedback::count(),
+        'votes' => Vote::count(),
+        'users' => User::count(),
+        'admins' => Admin::count(),
+        );
+
+        return view('dashboard')->with('var',$var);
     }
 }

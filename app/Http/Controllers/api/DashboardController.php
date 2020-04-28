@@ -11,6 +11,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth:user-api');
+        $this->middleware('UserEmailVerified');
     }
 
     public function index()

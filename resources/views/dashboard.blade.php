@@ -1,5 +1,115 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-logged in
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('img/box.png') }}" data-holder-rendered="true"  height="256">
+                <div class="card-body">
+                    <h3 class="card-text">Products: <strong>{{$var['products']}}</strong></h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('img/category.png') }}" data-holder-rendered="true"  height="256">
+                <div class="card-body">
+                    <h3 class="card-text">Categories: <strong>{{$var['categories']}}</strong></h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('img/provider.png') }}" data-holder-rendered="true"  height="256">
+                <div class="card-body">
+                    <h3 class="card-text">Providers: <strong>{{$var['providers']}}</strong></h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('img/group.png') }}" data-holder-rendered="true"  height="256">
+                <div class="card-body">
+                    <h3 class="card-text">Groups: <strong>{{$var['groups']}}</strong></h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('img/feedback.png') }}" data-holder-rendered="true"  height="256">
+                <div class="card-body">
+                    <h3 class="card-text">FeedBacks: <strong>{{$var['feedbacks']}}</strong></h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('img/vote.png') }}" data-holder-rendered="true"  height="256">
+                <div class="card-body">
+                    <h3 class="card-text">Votes: <strong>{{$var['votes']}}</strong></h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('img/user.png') }}" data-holder-rendered="true"  height="256">
+                <div class="card-body">
+                    <h3 class="card-text">Clients: <strong>{{$var['users']}}</strong></h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('img/admin.png') }}" data-holder-rendered="true"  height="256">
+                <div class="card-body">
+                    <h3 class="card-text">Admins: <strong>{{$var['admins']}}</strong></h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
