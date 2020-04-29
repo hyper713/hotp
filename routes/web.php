@@ -34,3 +34,5 @@ Route::post('/admins', 'web\AdminsController@store')->name('admins.store');
 Route::get('/admins/{admin}/edit', 'web\AdminsController@edit')->name('admins.edit');
 Route::put('/admins/{admin}', 'web\AdminsController@update')->name('admins.update');
 Route::get('/admins/{admin}/activate', 'web\AdminsController@activate')->name('admins.activate');
+
+Route::get('/users', 'web\UsersController@index')->name('users.index');

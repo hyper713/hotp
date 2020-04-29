@@ -58,7 +58,7 @@
                                 Users
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="">Clients</a>
+                            <a class="dropdown-item" href="{{route('users.index')}}">Clients</a>
                                 @if(Auth::guard('admin-web')->user()->id==1)
                                     <a class="dropdown-item" href="{{route('admins.index')}}">Admins</a>
                                 @endif

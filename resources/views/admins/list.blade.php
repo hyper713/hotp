@@ -42,9 +42,9 @@
                                     <td>{{$admin->updated_at}}</td>
                                     <td>
                                         @if ($admin->active == 1)
-                                            <a href="{{route('admins.activate',$admin->id)}}"><button type="button" class="btn btn-sm btn-warning">Deactive</button></a>
+                                            <a href="{{route('admins.activate',$admin->id)}}"><button type="button" class="btn btn-sm btn-secondary">Deactive</button></a>
                                         @else
-                                            <a href="{{route('admins.activate',$admin->id)}}"><button type="button" class="btn btn-sm btn-warning">Activate</button></a>
+                                            <a href="{{route('admins.activate',$admin->id)}}"><button type="button" class="btn btn-sm btn-success">Activate</button></a>
                                         @endif
                                         <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#Modal{{$admin->id}}">Delete</button>
 
