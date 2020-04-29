@@ -59,8 +59,8 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="">Clients</a>
-                                @if(Auth::user()->id==1)
-                                    <a class="dropdown-item" href="">Admins</a>
+                                @if(Auth::guard('admin-web')->user()->id==1)
+                                    <a class="dropdown-item" href="{{route('admins.index')}}">Admins</a>
                                 @endif
                             </div>
                         </li>
@@ -70,11 +70,11 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::guard('admin-web')->user()->name }} <span class="caret"></span>
                             </a>
                             
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="">
+                                <a class="dropdown-item" href="{{route('admins.edit',Auth::guard('admin-web')->user()->id)}}">
                                     Update my Info
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}">
