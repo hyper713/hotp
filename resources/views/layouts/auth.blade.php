@@ -36,7 +36,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                        <a class="nav-link" href="">Categories</a>
+                        <a class="nav-link" href="{{route('categories.index')}}">Categories</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="">Providers</a>

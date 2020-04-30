@@ -36,3 +36,5 @@ Route::put('/admins/{admin}', 'web\AdminsController@update')->name('admins.updat
 Route::get('/admins/{admin}/activate', 'web\AdminsController@activate')->name('admins.activate');
 
 Route::get('/users', 'web\UsersController@index')->name('users.index');
+
+Route::resource('categories','web\CategoriesController');
