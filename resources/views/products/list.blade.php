@@ -49,7 +49,7 @@
             </div>
         </div>
         @if (isset($products))
-            <br><br>
+            <br>
             <div class="row">
                 @if(count($products)>0)
                     @foreach ($products as $product)
