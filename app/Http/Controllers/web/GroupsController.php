@@ -21,7 +21,8 @@ class GroupsController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth' => 'verified']);
+        $this->middleware('auth:admin-web');
+        $this->middleware('AdminEmailVerified');
     }
 
     public function index()

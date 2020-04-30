@@ -45,7 +45,7 @@
                         <a class="nav-link" href="{{route('groups.index')}}">Groups</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Products</a>
+                            <a class="nav-link" href="{{route('products.index')}}">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Feedbacks</a>

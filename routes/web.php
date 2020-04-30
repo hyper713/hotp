@@ -42,3 +42,6 @@ Route::resource('categories','web\CategoriesController');
 Route::resource('providers','web\ProvidersController');
 
 Route::resource('groups','web\GroupsController');
+
+Route::get('/products', 'web\ProductsController@index')->name('products.index');
+Route::get('/products/search','web\ProductsController@search')->name('products.search');
