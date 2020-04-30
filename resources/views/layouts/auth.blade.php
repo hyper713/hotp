@@ -39,7 +39,7 @@
                         <a class="nav-link" href="{{route('categories.index')}}">Categories</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="">Providers</a>
+                        <a class="nav-link" href="{{route('providers.index')}}">Providers</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="">Groups</a>

@@ -38,3 +38,5 @@ Route::get('/admins/{admin}/activate', 'web\AdminsController@activate')->name('a
 Route::get('/users', 'web\UsersController@index')->name('users.index');
 
 Route::resource('categories','web\CategoriesController');
+
+Route::resource('providers','web\ProvidersController');

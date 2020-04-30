@@ -22,7 +22,7 @@
                                     <th scope="row">{{$user->name}}</th>
                                     <td>{{$user->email}}</td>
                                     <td>
-                                        @if (empty($admin->email_verified_at))
+                                        @if (empty($user->email_verified_at))
                                             No
                                         @else
                                             Yes

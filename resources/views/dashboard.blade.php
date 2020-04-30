@@ -36,7 +36,7 @@
                     <h3 class="card-text">Providers: <strong>{{$var['providers']}}</strong></h3>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                            <a href="{{route('providers.index')}}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
                         </div>
                     </div>
                 </div>
