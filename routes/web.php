@@ -40,3 +40,5 @@ Route::get('/users', 'web\UsersController@index')->name('users.index');
 Route::resource('categories','web\CategoriesController');
 
 Route::resource('providers','web\ProvidersController');
+
+Route::resource('groups','web\GroupsController');
