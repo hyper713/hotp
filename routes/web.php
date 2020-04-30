@@ -45,3 +45,5 @@ Route::resource('groups','web\GroupsController');
 
 Route::get('/products', 'web\ProductsController@index')->name('products.index');
 Route::get('/products/search','web\ProductsController@search')->name('products.search');
+
+Route::get('/feedbacks', 'web\FeedbacksController@index')->name('feedbacks.index');
