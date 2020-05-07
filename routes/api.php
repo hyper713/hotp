@@ -27,4 +27,17 @@ Route::post('sendpassword', 'ApiAuth\ResetPasswordController@send');
 
 
 
-Route::get('dashboard', 'api\DashboardController@index');
+Route::get('load', 'api\LoadController@index');
+
+Route::get('favourite', 'api\FavouritesController@index');
+Route::post('favourite', 'api\FavouritesController@store');
+Route::delete('favourite', 'api\FavouritesController@destroy');
+
+Route::get('user', 'api\UsersController@index');
+Route::put('user', 'api\UsersController@update');
+Route::put('user/password', 'api\UsersController@pass');
+
+Route::get('feedback', 'api\FeedbacksController@index');
+Route::post('feedback', 'api\FeedbacksController@store');
+
+Route::post('visit', 'api\VisitsController@index');

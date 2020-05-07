@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Mail\UserVerify;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 use App\UserCode;
 use Auth;
 use DB;
@@ -58,17 +59,27 @@ class VerificationController extends Controller
         {
             return response()->json(['Error'=>'Not found, Request another verification email']);
         }
-        
-        if(strcmp($request->code , $sent_code->code)==0)
-        {
-            $user = User::find(Auth::guard('user-api')->user()->id);
-            $user->email_verified_at=date('Y-m-d H:i:s');
-            $user->save();
-            return response()->json(['Success'=>'Email verified successfully']);
+
+        $validation = Validator::make($request->all(), [
+            'code' => 'required'
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json($validation->errors());
         }
         else
         {
-            return response()->json(['Error'=>'You have entered invalid code']);
+            if(strcmp($request->code , $sent_code->code)==0)
+            {
+                $user = User::find(Auth::guard('user-api')->user()->id);
+                $user->email_verified_at=date('Y-m-d H:i:s');
+                $user->save();
+                return response()->json(['Success'=>'Email verified successfully']);
+            }
+            else
+            {
+                return response()->json(['Error'=>'You have entered invalid code']);
+            }
         }
     }
 }
