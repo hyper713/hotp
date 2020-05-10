@@ -124,6 +124,21 @@ class AdminsController extends Controller
     {
         $admin = Admin::find($id);
         if(Auth::guard('admin-web')->user()->id==1){
+            $count1 = DB::table('categories')
+                ->where('categories.admin_id','=',$id)
+                ->count();
+            
+            $count2 = DB::table('providers')
+                ->where('providers.admin_id','=',$id)
+                ->count();
+            $count3 = DB::table('groups')
+                ->where('groups.admin_id','=',$id)
+                ->count();
+        
+            if($count1>0 or $count2>0 or $count3>=0){
+                return redirect(route('admins.index'))->with('error', "Can't delete this recod it's linked to ".$count1.' Categories(s)'.' And '.$count2.' Providers(s)'.' And '.$count3.' Groups(s)');
+            }
+
             $admin->delete();
             return redirect(route('admins.index'))->with('success',' Well Deleted!');
         }

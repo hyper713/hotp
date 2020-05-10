@@ -118,6 +118,14 @@ class ProvidersController extends Controller
      */
     public function destroy($id)
     {
+        $count1 = DB::table('groups')
+        ->where('groups.provider_id','=',$id)
+        ->count();
+        
+        if($count1>0){
+            return redirect(route('providers.index'))->with('error', "Can't delete this recod it's linked to ".$count1.' Groups(s)');
+        }
+        
         $provider = Provider::find($id);
         
         $provider->delete();

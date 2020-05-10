@@ -134,6 +134,14 @@ class GroupsController extends Controller
      */
     public function destroy($id)
     {
+        $count1 = DB::table('products')
+        ->where('products.group_id','=',$id)
+        ->count();
+        
+        if($count1>0){
+            return redirect(route('groups.index'))->with('error', "Can't delete this recod it's linked to ".$count1.' Products(s)');
+        }
+
         $group = Group::find($id);
         
         $group->delete();

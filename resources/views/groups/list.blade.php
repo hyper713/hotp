@@ -23,7 +23,7 @@
                             @foreach($groups as $group)
                                 <tr>
                                     <th scope="row">{{$group->grp_name}}</th>
-                                    <td>{{$group->grp_link}}</td>
+                                    <td><a href="{{$group->grp_link}}" target="blank">Click to visit</a></td>
                                     <td>{{$group->cat_name}}</td>
                                     <td>{{$group->prov_name}}</td>
                                     <td>{{$group->updated_at}}</td>

@@ -15,7 +15,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-8">
+                                <div class="col-12">
                                     {{Form::label('link', "Goup Link")}}
                                     {{Form::text('link', '', ['class' => 'form-control', 'placeholder' => "Enter Link",'required'])}}
                                 </div>
