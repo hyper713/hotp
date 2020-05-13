@@ -33,7 +33,7 @@ class RegisterController extends Controller
             $user->name=$request->name;
             $user->email=$request->email;
             $user->password=Hash::make($request->password);
-            $user->api_token=hash('sha256', Str::random(80));
+            $user->api_token=Str::random(80);
             $user->save();
             return response()->json($user->only('name','email','api_token'));
         }

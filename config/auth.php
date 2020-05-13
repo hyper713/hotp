@@ -44,7 +44,7 @@ return [
         'user-api' => [
             'driver' => 'token',
             'provider' => 'users',
-            'hash' => true,
+            'hash' => false,
         ],
 
         'admin-web' => [
@@ -55,7 +55,7 @@ return [
         'admin-api' => [
             'driver' => 'token',
             'provider' => 'admins',
-            'hash' => true,
+            'hash' => false,
         ],
     ],
 
