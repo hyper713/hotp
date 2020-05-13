@@ -119,12 +119,8 @@ class CategoriesController extends Controller
         ->where('groups.category_id','=',$id)
         ->count();
         
-        $count2 = DB::table('votes')
-        ->where('votes.category_id','=',$id)
-        ->count();
-        
-        if($count1>0 OR $count2>0){
-            return redirect(route('categories.index'))->with('error', "Can't delete this recod it's linked to ".$count1.' Groups(s)'.' And '.$count2.' Votes(s)');
+        if($count1>0){
+            return redirect(route('categories.index'))->with('error', "Can't delete this recod it's linked to ".$count1.' Groups(s)');
         }
         
         $category = Category::find($id);

@@ -63,7 +63,9 @@
                                         <div class="btn-group">
                                             <a href="{{$product->link}}"><button type="button" class="btn btn-sm btn-outline-dark">View</button></a>
                                         </div>
-                                        {{-- <small class="text-muted">{{$product->created_at}}</small> --}}
+                                        @if ($product->best==1)
+                                            <small s="text-muted">Best</small>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

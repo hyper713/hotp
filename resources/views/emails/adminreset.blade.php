@@ -1,6 +1,6 @@
 @component('mail::message')
 Hello {{$data['name']}}
-# Your request for reseting the password has been approuved
+# Your request for resetting the password has been approved
 
 Use the password below in order to authenticate
 

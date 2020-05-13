@@ -1,6 +1,6 @@
 @component('mail::message')
 Hello {{$data['name']}}
-# Your request for verifing the email has been approuved
+# Your request for verifying the email has been approved
 
 Use the code below in order to continue the authentication
 
