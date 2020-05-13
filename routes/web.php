@@ -47,5 +47,3 @@ Route::get('/products', 'web\ProductsController@index')->name('products.index');
 Route::get('/products/search','web\ProductsController@search')->name('products.search');
 
 Route::get('/feedbacks', 'web\FeedbacksController@index')->name('feedbacks.index');
-
-Route::get('/votes', 'web\VotesController@index')->name('votes.index');

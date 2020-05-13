@@ -9,7 +9,6 @@ use App\Category;
 use App\Provider;
 use App\Group;
 use App\Feedback;
-use App\Vote;
 use App\Admin;
 use App\User;
 
@@ -28,7 +27,7 @@ class DashboardController extends Controller
         'providers' => Provider::count(),
         'groups' => Group::count(),
         'feedbacks' => Feedback::count(),
-        'votes' => Vote::count(),
+        'visits' => Product::sum('visits'),
         'users' => User::count(),
         'admins' => Admin::count(),
         );

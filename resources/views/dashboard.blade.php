@@ -73,12 +73,12 @@
         </div>
         <div class="col-3">
             <div class="card">
-                <img class="card-img-top" src="{{ asset('img/vote.png') }}" data-holder-rendered="true"  height="256">
+                <img class="card-img-top" src="{{ asset('img/visit.png') }}" data-holder-rendered="true"  height="256">
                 <div class="card-body">
-                    <h3 class="card-text">Votes: <strong>{{$var['votes']}}</strong></h3>
+                    <h3 class="card-text">Visits: <strong>{{$var['visits']}}</strong></h3>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="{{route('votes.index')}}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                            <a href="{{route('products.index')}}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
                         </div>
                     </div>
                 </div>
