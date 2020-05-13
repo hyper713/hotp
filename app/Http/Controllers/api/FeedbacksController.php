@@ -43,7 +43,7 @@ class FeedbacksController extends Controller
             $feed->subject=$request->subject;
             $feed->text=$request->text;
             $feed->save();
-            return response()->json(['success'=>'Feedback created successfully']);
+            return response()->json(['success'=>'feedback created successfully']);
         }
     }
 }

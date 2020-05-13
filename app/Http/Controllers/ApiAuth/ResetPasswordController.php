@@ -40,7 +40,7 @@ class ResetPasswordController extends Controller
         Mail::to($request->email)->send(new UserResetPassword($data));
         $user->password = Hash::make($password);
         $user->save();
-        return response()->json(['success'=>'A fresh Password has been sent to your email address.']);
+        return response()->json(['success'=>'a fresh password has been sent to your email address.']);
     }
 
 }

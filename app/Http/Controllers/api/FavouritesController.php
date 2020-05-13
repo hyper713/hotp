@@ -43,12 +43,12 @@ class FavouritesController extends Controller
                     ->count();
     
             if ($count>0) {
-                return response()->json(['error'=>'Favourit Already exists']);
+                return response()->json(['error'=>'favourit already exists']);
             } else {
                 $product=Product::find($request->product_id);
     
                 if (empty($product)) {
-                    return response()->json(['error'=>'Bad product']);
+                    return response()->json(['error'=>'bad product']);
                 } else {
                     $elm=new Favourite;
             
@@ -61,7 +61,7 @@ class FavouritesController extends Controller
                     $elm->available=1;
                     $elm->save();
                     
-                    return response()->json(['success'=>'Favourite created successfully']);
+                    return response()->json(['success'=>'favourite created successfully']);
                 }
             }
         }
@@ -81,13 +81,13 @@ class FavouritesController extends Controller
             $elm=Favourite::find($request->favourite_id);
     
             if (empty($elm)) {
-                return response()->json(['error'=>'Bad Favourite']);
+                return response()->json(['error'=>'bad Favourite']);
             } else {
                 if ($elm->user_id == Auth::guard('user-api')->user()->id) {
                     $elm->delete();
-                    return response()->json(['success'=>'Favourite deleted successfully']);
+                    return response()->json(['success'=>'favourite deleted successfully']);
                 } else {
-                    return response()->json(['error'=>'Not Allowed']);
+                    return response()->json(['error'=>'not allowed']);
                 }
             }
         }

@@ -29,7 +29,7 @@ class VisitsController extends Controller
             $elm=Product::find($request->product_id);
             $elm->visits = $elm->visits +1;
             $elm->save();
-            return response()->json(['success'=>'Visit added successfully']);
+            return response()->json(['success'=>'visit added successfully']);
         }
     }
 }

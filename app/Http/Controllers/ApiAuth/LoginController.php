@@ -35,7 +35,7 @@ class LoginController extends Controller
             }
             else
             {
-                return response()->json(['Error'=>'Wrong login credentials']);
+                return response()->json(['error'=>'wrong login credentials']);
             }
         }
     }

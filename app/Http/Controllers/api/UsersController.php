@@ -48,7 +48,7 @@ class UsersController extends Controller
             $user->name=$request->name;
             $user->save();
 
-            return response()->json(['success'=>'User updated successfully']);
+            return response()->json(['success'=>'user updated successfully']);
         }
     }
 
@@ -69,10 +69,10 @@ class UsersController extends Controller
                 $user=User::find(Auth::guard('user-api')->user()->id);
                 $user->password = Hash::make($request->password);
                 $user->save();
-                return response()->json(['success'=>'Password updated successfully']);
+                return response()->json(['success'=>'password updated successfully']);
             }
             else{
-                return response()->json(['error'=>'Non matching passwords']);
+                return response()->json(['error'=>'non matching passwords']);
             }
         }
     }
