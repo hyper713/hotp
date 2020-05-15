@@ -40,7 +40,7 @@ class UsersController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json(['message'=>$validation->errors()->first()]);
         }
         else
         {
@@ -48,7 +48,7 @@ class UsersController extends Controller
             $user->name=$request->name;
             $user->save();
 
-            return response()->json(['success'=>'user updated successfully']);
+            return response()->json(['message'=>'user updated successfully']);
         }
     }
 
@@ -60,7 +60,7 @@ class UsersController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json(['message'=>$validation->errors()->first()]);
         }
         else
         {
@@ -69,10 +69,10 @@ class UsersController extends Controller
                 $user=User::find(Auth::guard('user-api')->user()->id);
                 $user->password = Hash::make($request->password);
                 $user->save();
-                return response()->json(['success'=>'password updated successfully']);
+                return response()->json(['message'=>'password updated successfully']);
             }
             else{
-                return response()->json(['error'=>'non matching passwords']);
+                return response()->json(['message'=>'non matching passwords']);
             }
         }
     }

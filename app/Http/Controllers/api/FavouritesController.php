@@ -34,26 +34,28 @@ class FavouritesController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json(['message'=>$validation->errors()->first()]);
         }
-        else
-        {
+        else{
             $count=DB::table('favourites')
+                    ->where('user_id',Auth::guard('user-api')->user()->id)
                     ->where('product_id',$request->product_id)
                     ->count();
     
             if ($count>0) {
-                return response()->json(['error'=>'favourit already exists']);
-            } else {
+                return response()->json(['message'=>'favourit already exists']);
+            } 
+            else{
                 $product=Product::find($request->product_id);
-    
+                
                 if (empty($product)) {
-                    return response()->json(['error'=>'bad product']);
-                } else {
+                    return response()->json(['message'=>'bad product']);
+                }
+                else{
                     $elm=new Favourite;
             
                     $elm->user_id=Auth::guard('user-api')->user()->id;
-                    $elm->product_id=$product->id_product;
+                    $elm->product_id=$request->product_id;
                     $elm->name=$product->name;
                     $elm->image=$product->image;
                     $elm->price=$product->price;
@@ -61,7 +63,7 @@ class FavouritesController extends Controller
                     $elm->available=1;
                     $elm->save();
                     
-                    return response()->json(['success'=>'favourite created successfully']);
+                    return response()->json(['message'=>'favourite created successfully']);
                 }
             }
         }
@@ -74,20 +76,21 @@ class FavouritesController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json(['message'=>$validation->errors()->first()]);
         }
-        else
-        {
+        else{
             $elm=Favourite::find($request->favourite_id);
     
             if (empty($elm)) {
-                return response()->json(['error'=>'bad Favourite']);
-            } else {
+                return response()->json(['message'=>'bad Favourite']);
+            }
+            else{
                 if ($elm->user_id == Auth::guard('user-api')->user()->id) {
                     $elm->delete();
-                    return response()->json(['success'=>'favourite deleted successfully']);
-                } else {
-                    return response()->json(['error'=>'not allowed']);
+                    return response()->json(['message'=>'favourite deleted successfully']);
+                }
+                else{
+                    return response()->json(['message'=>'not allowed']);
                 }
             }
         }

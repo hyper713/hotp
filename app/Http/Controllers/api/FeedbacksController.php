@@ -34,16 +34,15 @@ class FeedbacksController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json(['message'=>$validation->errors()->first()]);
         }
-        else
-        {
+        else{
             $feed = new Feedback;
             $feed->user_id= Auth::guard('user-api')->user()->id;
             $feed->subject=$request->subject;
             $feed->text=$request->text;
             $feed->save();
-            return response()->json(['success'=>'feedback created successfully']);
+            return response()->json(['message'=>'feedback created successfully']);
         }
     }
 }

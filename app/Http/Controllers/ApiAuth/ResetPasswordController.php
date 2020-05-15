@@ -26,7 +26,7 @@ class ResetPasswordController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json(['message'=>$validation->errors()->first()]);
         }
 
         $user = User::where('email',$request->email)->first();
@@ -40,7 +40,7 @@ class ResetPasswordController extends Controller
         Mail::to($request->email)->send(new UserResetPassword($data));
         $user->password = Hash::make($password);
         $user->save();
-        return response()->json(['success'=>'a fresh password has been sent to your email address.']);
+        return response()->json(['message'=>'a fresh password has been sent to your email address.']);
     }
 
 }

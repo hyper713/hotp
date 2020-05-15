@@ -23,7 +23,7 @@ class VerificationController extends Controller
     public function send()
     {
         if(Auth::guard('user-api')->user()->hasVerifiedEmail()){
-            return response()->json(['error'=>'the email is already verified']);
+            return response()->json(['message'=>'the email is already verified']);
         }
 
         $code= Str::random(4);
@@ -41,13 +41,13 @@ class VerificationController extends Controller
         $elm->code=$code;
         $elm->created_at=date('Y-m-d H:i:s');
         $elm->save();
-        return response()->json(['success'=>'a fresh email has been sent to your email address.']);
+        return response()->json(['message'=>'a fresh email has been sent to your email address.']);
     }
 
     public function verify(Request $request)
     {
         if(Auth::guard('user-api')->user()->hasVerifiedEmail()){
-            return response()->json(['error'=>'the email is already verified']);
+            return response()->json(['message'=>'the email is already verified']);
         }
 
         $sent_code = DB::table('user_code')
@@ -57,7 +57,7 @@ class VerificationController extends Controller
         
         if(!isset($sent_code))
         {
-            return response()->json(['error'=>'not found, request another verification email']);
+            return response()->json(['message'=>'not found, request another verification email']);
         }
 
         $validation = Validator::make($request->all(), [
@@ -65,7 +65,7 @@ class VerificationController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json(['message'=>$validation->errors()->first()]);
         }
         else
         {
@@ -74,11 +74,11 @@ class VerificationController extends Controller
                 $user = User::find(Auth::guard('user-api')->user()->id);
                 $user->email_verified_at=date('Y-m-d H:i:s');
                 $user->save();
-                return response()->json(['success'=>'email verified successfully']);
+                return response()->json(['message'=>'email verified successfully']);
             }
             else
             {
-                return response()->json(['error'=>'you have entered invalid code']);
+                return response()->json(['message'=>'you have entered invalid code']);
             }
         }
     }

@@ -17,7 +17,7 @@ class UserVerify
     public function handle($request, Closure $next)
     {
         if(!Auth::guard('user-api')->user()->hasVerifiedEmail()){
-            return response()->json(['Error'=>'Your email is not verified']);
+            return response()->json(['message'=>'Your email is not verified']);
         }
 
         return $next($request);

@@ -23,7 +23,7 @@ class LoginController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json(['message'=>$validation->errors()->first()]);
         }
         else
         {
@@ -35,7 +35,7 @@ class LoginController extends Controller
             }
             else
             {
-                return response()->json(['error'=>'wrong login credentials']);
+                return response()->json(['message'=>'wrong login credentials']);
             }
         }
     }

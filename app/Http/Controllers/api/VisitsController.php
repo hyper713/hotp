@@ -22,14 +22,14 @@ class VisitsController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json($validation->errors());
+            return response()->json(['message'=>$validation->errors()->first()]);
         }
         else
         {
             $elm=Product::find($request->product_id);
             $elm->visits = $elm->visits +1;
             $elm->save();
-            return response()->json(['success'=>'visit added successfully']);
+            return response()->json(['message'=>'visit added successfully']);
         }
     }
 }
