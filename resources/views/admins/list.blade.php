@@ -10,7 +10,7 @@
                 <table class="table table-hover table-dark">
                     <thead>
                         <tr>           
-                            <th scope="col">name</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Email verified</th>
                             <th scope="col">State</th>

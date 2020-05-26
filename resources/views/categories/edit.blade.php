@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card text-white bg-dark">
-                    <div class="card-header">Create Category</div>
+                    <div class="card-header">Edit Category</div>
                     <div class="card-body">
                         {!! Form::open(['route' => ['categories.update', $category->id_category], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
                             <div class="form-group">

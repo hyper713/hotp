@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card text-white bg-dark">
         <div class="card-header">
-            <h4 class="panel-title">List of Products from Provider: {{$group->name}}</h4>
+            <h4 class="panel-title">List of Products from Group: {{$group->name}}</h4>
         </div>
     </div>
     <br>
@@ -19,11 +19,14 @@
                             <h5 class="card-title">{{$product->price}} $</h5>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="{{$product->link}}"><button type="button" class="btn btn-sm btn-outline-dark">View</button></a>
+                                    <a href="{{$product->link}}" target="_blank"><button type="button" class="btn btn-sm btn-outline-dark">View</button></a>
                                 </div>
-                                @if ($product->best==1)
-                                    <small class="text-muted">Best</small>
-                                @endif
+                                <small s="text-muted">
+                                    @if ($product->best==1)
+                                        Best / 
+                                    @endif
+                                    {{$product->visits}} visits
+                                </small>
                             </div>
                         </div>
                     </div>

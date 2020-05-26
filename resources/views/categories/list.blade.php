@@ -10,7 +10,7 @@
                 <table class="table table-hover table-dark">
                     <thead>
                         <tr>
-                            <th scope="col">name</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Created at</th>
                             <th scope="col">Updated at</th>
                             <th scope="col">Created by</th>

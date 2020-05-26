@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card text-white bg-dark">
-                    <div class="card-header">Create Provider</div>
+                    <div class="card-header">Create Admin</div>
                     <div class="card-body">
                         {!! Form::open(['route' => 'admins.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                             <div class="form-group">

@@ -10,13 +10,13 @@
                         {!! Form::open(['route' => ['providers.update', $provider->id_provider], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
                             <div class="form-group">
                                 <div class="col-8">
-                                    {{Form::label('name', "provider Name")}}
+                                    {{Form::label('name', "Provider Name")}}
                                     {{Form::text('name', $provider->name, ['class' => 'form-control', 'placeholder' => "Enter Name",'required'])}}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-8">
-                                    {{Form::label('link', "provider Link")}}
+                                    {{Form::label('link', "Provider Link")}}
                                     {{Form::text('link', $provider->link, ['class' => 'form-control', 'placeholder' => "Enter Link",'required'])}}
                                 </div>
                             </div>

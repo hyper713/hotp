@@ -4,13 +4,13 @@
     <div class="container">
         <a href="{{route('providers.create')}}"><button type="button" class="btn btn btn-success" style="margin-bottom: 10px;">Add Provider</button></a>
         <div class="card text-white bg-dark">
-            <div class="card-header">Categories</div>
+            <div class="card-header">Providers</div>
             <div class="card-body">
                 @if(count($providers)>0)
                 <table class="table table-hover table-dark">
                     <thead>
                         <tr>
-                            <th scope="col">name</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Link</th>
                             <th scope="col">Created at</th>
                             <th scope="col">Updated at</th>

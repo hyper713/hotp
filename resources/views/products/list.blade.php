@@ -63,9 +63,12 @@
                                         <div class="btn-group">
                                             <a href="{{$product->link}}"><button type="button" class="btn btn-sm btn-outline-dark">View</button></a>
                                         </div>
-                                        @if ($product->best==1)
-                                            <small s="text-muted">Best</small>
-                                        @endif
+                                        <small s="text-muted">
+                                            @if ($product->best==1)
+                                                Best / 
+                                            @endif
+                                            {{$product->visits}} visits
+                                        </small>
                                     </div>
                                 </div>
                             </div>

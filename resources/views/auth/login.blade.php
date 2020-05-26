@@ -26,7 +26,6 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <br>
-                <h1>Enter your login data!</h1>
                 <div class="card text-white bg-dark" style="margin-top: 100px;">
                     <div class="card-body">
                         <img src="{{ asset('img/logo_light.png') }}" height="65">
@@ -48,7 +47,7 @@
                             </div>
                             <div class="form-check">
                                 <input name="remember" type="checkbox" class="form-check-input" {{ old('remember') ? 'checked' : '' }}>
-                                <label class="form-check-label">Check me out</label>
+                                <label class="form-check-label">Remember me</label>
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary btn-block">Submit</button>

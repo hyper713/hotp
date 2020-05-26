@@ -26,7 +26,6 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <br>
-                <h1>Reset your Password!</h1>
                 <div class="card text-white bg-dark" style="margin-top: 100px;">
                     <div class="card-body">
                         <img src="{{ asset('img/logo_light.png') }}" height="65">
